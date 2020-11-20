@@ -1,6 +1,10 @@
 <h1> <%= @cocktail.name %> </h1>
 
-<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @cocktail.photos.attached? %>
+  <% @cocktail.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+<% end %>
 
 <h4> Ingredients : </h4>
 <% @cocktail.doses.each do |dose| %>
