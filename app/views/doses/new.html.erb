@@ -1,7 +1,7 @@
 <%= simple_form_for [ @cocktail, @dose ] do |f| %>
   <%= f.association :ingredient, collection: Ingredient.all %>
-  <%= f.input :description  %>
-  <%= f.button :submit %>
+  <%= f.input :description, label: "Quantity"  %>
+  <%= f.submit "Create this ingredient" %>
 <% end %>
 
 <br> <%= link_to "Back to list", cocktails_path %>
